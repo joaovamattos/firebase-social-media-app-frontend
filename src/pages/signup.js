@@ -62,7 +62,7 @@ export class signup extends Component {
                 <Grid item sm/>
                 <Grid item sm>
                     <img src={AppIcon} alt="fire" className={classes.image}></img>
-                    <Typography variant="h2" className={classes.pageTitle}>Signup</Typography>
+                    <Typography variant="h2" className={classes.pageTitle}>SignUp</Typography>
                     <form noValidate onSubmit={this.handleSubmit}>
 
                         <TextField 
