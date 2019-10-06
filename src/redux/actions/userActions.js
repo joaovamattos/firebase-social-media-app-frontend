@@ -68,7 +68,7 @@ export const uploadImage = (formData) => (dispatch) => {
 
 export const editUserDetails = (userDetails) => (dispatch) => {
     dispatch({ type: LOADING_USER });
-    axios.post('/user', userDetails)
+    axios.put('/user', userDetails)
         .then(() => {
             dispatch(getUserData());
         })
