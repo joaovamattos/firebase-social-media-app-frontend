@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyBytton from '../utils/MyButton';
+import PostScream from './PostScream';
 // Icons
-import AddIcon from '@material-ui/icons/Add';
 import HomeIcon from '@material-ui/icons/Home';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 // MUI stuff
@@ -21,9 +21,7 @@ class Navbar extends Component {
                <Toolbar className='nav-container'>
                     { authenticated ? (
                         <Fragment>
-                            <MyBytton tip="Post a Scream">
-                                <AddIcon />
-                            </MyBytton>
+                            <PostScream />
                             <Link to="/">
                                 <MyBytton tip="Home">
                                     <HomeIcon />
