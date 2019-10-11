@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import MyButton from "../utils/MyButton";
+import MyButton from "../../utils/MyButton";
 import dayjs from 'dayjs';
 import LikeButton from './LikeButton';
+import Comments from './Comments';
 import { Link } from 'react-router-dom';
 // MUI Stuff
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -17,14 +18,10 @@ import UnfoldMore from "@material-ui/icons/UnfoldMore";
 import ChatIcon from '@material-ui/icons/Chat';
 // Redux Stuff UnfoldMore
 import { connect } from "react-redux";
-import { getScream } from "../redux/actions/dataActions";
+import { getScream } from "../../redux/actions/dataActions";
 
 const styles = theme => ({
     ...theme.spreadThis,
-    invisibleSeparator: {
-        border: 'none',
-        magin: 4
-    },
     profileImage: {
         maxWidth: 200,
         height: 200,
@@ -62,7 +59,7 @@ class ScreamDialog extends Component{
     }
 
     render(){
-        const { classes, scream: { screamId, body, createdAt, likeCount, commentCount, userImage, userHandle }, UI: { loading } } = this.props;
+        const { classes, scream: { screamId, body, createdAt, likeCount, commentCount, userImage, userHandle, comments }, UI: { loading } } = this.props;
         const dialogMarkup = loading ? (
             <div className={classes.spinnerDiv}>
                 <CircularProgress size={200} />
@@ -96,6 +93,8 @@ class ScreamDialog extends Component{
                     </MyButton>
                     <span>{commentCount} Comments</span>
                 </Grid>
+                <hr className={classes.visibleSeparator} />
+                <Comments comments={comments} />
             </Grid>
         )
 

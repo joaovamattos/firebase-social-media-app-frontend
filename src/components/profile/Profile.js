@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { logoutUser, uploadImage } from "../redux/actions/userActions";
+import { logoutUser, uploadImage } from "../../redux/actions/userActions";
 import dayjs from "dayjs";
 import EditDetails from "./EditDetails";
 // MUI Stuff
@@ -19,7 +19,7 @@ import LinkIcon from "@material-ui/icons/Link";
 import CalendarToday from "@material-ui/icons/CalendarToday";
 import EditIcon from "@material-ui/icons/Edit";
 
-import MyButton from "../utils/MyButton";
+import MyButton from "../../utils/MyButton";
 
 const styles = theme => ({
   paper: {
