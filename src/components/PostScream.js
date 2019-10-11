@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import withStyles from "@material-ui/core/styles/withStyles";
+import MyButton from "../utils/MyButton";
 
 import { connect } from "react-redux";
-import { postScream } from "../redux/actions/dataActions";
+import { postScream, clearErrors } from "../redux/actions/dataActions";
 
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -13,20 +14,21 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
-import MyButton from "../utils/MyButton";
 
 const styles = theme => ({
   ...theme.spreadThis,
   submitButton: {
-    position: "relative"
+    position: "relative",
+    float: 'right',
+    marginTop: 10
   },
   progressSpinner: {
     position: "absolute"
   },
   closeButton: {
     position: "absolute",
-    left: "90%",
-    top: "5%"
+    left: "91%",
+    top: "6%"
   }
 });
 
@@ -45,18 +47,19 @@ class PostScream extends Component {
     }
     if (!nextProps.UI.errors && !nextProps.UI.loading) {
       this.setState({
-        body: ''
+        body: '',
+        open: false, 
+        errors: {} 
       });
-      this.handleClose();
     }
   }
 
   handleOpen = () => {
     this.setState({ open: true });
   };
-
+  
   handleClose = () => {
-    this.setState({ open: false, errors: {} });
+    this.props.clearErrors();
   };
 
   handleChange = event => {
@@ -133,6 +136,7 @@ class PostScream extends Component {
 
 PostScream.propTypes = {
   postScream: PropTypes.func.isRequired,
+  clearErrors: PropTypes.func.isRequired,
   UI: PropTypes.object.isRequired
 };
 
@@ -142,5 +146,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { postScream }
+  { postScream, clearErrors }
 )(withStyles(styles)(PostScream));
