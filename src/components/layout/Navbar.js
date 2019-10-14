@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import MyBytton from '../../utils/MyButton';
 import PostScream from '../scream/PostScream';
+import Notifications from './Notifications';
 // Icons
 import HomeIcon from '@material-ui/icons/Home';
-import NotificationsIcon from '@material-ui/icons/Notifications';
 // MUI stuff
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -27,9 +27,7 @@ class Navbar extends Component {
                                     <HomeIcon />
                                 </MyBytton>
                             </Link>
-                            <MyBytton tip="Notifications">
-                                <NotificationsIcon />
-                            </MyBytton>
+                            <Notifications />
                         </Fragment>
                     ) : (
                         <Fragment>
