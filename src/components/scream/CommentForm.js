@@ -40,8 +40,9 @@ class CommentForm extends Component {
   render() {
     const {
       classes,
-      authenticated,
-      UI: { loading }
+      authenticated
+
+      
     } = this.props;
     const errors = this.state.errors;
 
