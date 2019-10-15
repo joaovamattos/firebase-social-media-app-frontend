@@ -22,14 +22,14 @@ const styles = theme => ({
         objectFit: 'cover'
     },
     handle:{
-        width: 120,
+        width: "30%",
         height: 18,
         backgroundColor: '#ff3d00',
         marginBottom: 7
     },
     date: {
         height: 14,
-        width: 100,
+        width: '20%',
         marginBottom: 10,
         backgroundColor: '#dbdbdb'
     },
